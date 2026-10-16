@@ -1,0 +1,18 @@
+/* NeurOS original theme — MIT. */
+QWidget { background: #0c1018; color: #e6e3ee; font-family: "DejaVu Sans"; font-size: 13px; }
+QLabel { background: transparent; }
+QPushButton { background: #191724; border: 1px solid #58416f; padding: 12px 22px; min-width: 90px; }
+QPushButton:hover { background: #30213f; border-color: #b584f7; }
+QPushButton:focus { border: 2px solid #79efb7; }
+QPushButton:default { background: #ad7af1; color: #0a0d13; font-weight: bold; }
+QPushButton:disabled { color: #596174; border-color: #2c303d; background: #10141c; }
+QLineEdit, QComboBox, QListView, QTreeView { background: #111823; border: 1px solid #343d50; padding: 8px; selection-background-color: #704b9d; selection-color: #ffffff; }
+QLineEdit:focus, QComboBox:focus { border-color: #b084f6; }
+QProgressBar { border: 1px solid #58416f; background: #141923; text-align: center; min-height: 12px; }
+QProgressBar::chunk { background: #a67bec; }
+QGroupBox { border: 1px solid #303746; margin-top: 20px; padding: 16px; }
+QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 5px; color: #b592e6; }
+QCheckBox::indicator { width: 16px; height: 16px; background: #141923; border: 1px solid #5b426f; }
+QCheckBox::indicator:checked { background: #75eeb4; border-color: #75eeb4; }
+QScrollBar:vertical { background: #10151e; width: 9px; }
+QScrollBar::handle:vertical { background: #5d467a; min-height: 24px; }

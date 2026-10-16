@@ -1,0 +1,28 @@
+---
+componentName: NeurOS
+welcomeStyleCalamares: false
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 1180px,760px
+windowPlacement: center
+sidebar: widget
+navigation: widget
+strings:
+    productName: NeurOS
+    shortProductName: NeurOS
+    version: development
+    shortVersion: dev
+    versionedName: NeurOS Development
+    shortVersionedName: NeurOS dev
+    bootloaderEntryName: NeurOS
+images:
+    productIcon: assets/mark.svg
+    productLogo: assets/mark.svg
+    productWelcome: assets/wordmark.png
+style:
+    sidebarBackground: "#0c1018"
+    sidebarText: "#929bb0"
+    sidebarTextSelect: "#eee6fc"
+    sidebarTextHighlight: "#241b34"
+slideshow: show.qml
+slideshowAPI: 2
