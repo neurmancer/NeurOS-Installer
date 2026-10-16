@@ -9,3 +9,9 @@ target_compile_definitions(neuros-installer PRIVATE NEUROS_SOURCE_DIR="${CMAKE_C
 install(TARGETS neuros-installer RUNTIME DESTINATION bin)
 install(DIRECTORY src/app/ DESTINATION share/neuros-installer/app FILES_MATCHING PATTERN "*.qml")
 install(DIRECTORY src/branding/NeurOS DESTINATION share/neuros-installer/branding)
+
+install(DIRECTORY src/etc/calamares DESTINATION /etc)
+install(DIRECTORY src/modules/ DESTINATION lib/neuros-installer/modules)
+install(DIRECTORY src/branding/NeurOS DESTINATION share/calamares/branding)
+install(PROGRAMS scripts/neuros-install-system DESTINATION bin)
+install(FILES packaging/neuros-installer.desktop DESTINATION share/applications)

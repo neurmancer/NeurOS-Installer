@@ -58,10 +58,39 @@ The branding selects native Calamares widget navigation/sidebar. The existing
 not falsely wired to an undocumented Calamares navigation API. The standalone
 preview is not a Calamares module and does not launch Calamares.
 
-CMake stages branding under `share/neuros-installer/branding`, deliberately outside
-Calamares's active configuration. No production `settings.conf` is provided yet.
-The established `src/etc/calamares` and `src/modules` directories are reserved for
-that integration. See [STEPS.md](STEPS.md) for the remaining work.
+## Actual installation (development)
 
-Original code is MIT, as in LICENSE. Concept artwork remains attributed to its
-existing source; adding it here does not change third-party rights.
+The production direction is a separate Calamares frontend. The standalone QML
+preview remains a design prototype; its exported JSON is never executed or
+imported into Calamares. Launch **Install NeurOS** from the live image to use the
+branded Calamares wizard with its own validated locale, keyboard, partition,
+account, summary, progress and error pages.
+
+`src/etc/calamares/settings.conf` defines the offline sequence. Installation
+requires UEFI, Secure Boot disabled, an ext4 root, and a FAT32 ESP at `/boot`.
+Encryption and manual partitioning are disabled in this initial profile.
+The complete live filesystem supplies the desktop, Axon and Radioport; no
+network package downloads are required during installation.
+
+The launcher snapshots disk identity. `neurospreflight` compares it immediately
+before partition jobs. `neuroscleanup` removes live-only settings before the
+Calamares users job creates the selected account. `neurosboot` generates the
+matching initramfs and stages systemd-boot → NeurOS → Linux. Cancel is available
+before installation, disabled during disk writes, and errors are reported by
+the actual job queue. A failed install is not automatically rolled back.
+
+This configuration is **under validation**, not a completed release. Read
+[STEPS.md](STEPS.md) for evidence and remaining checks. Do not invoke the config
+on a development host. The supported launcher refuses non-live systems.
+
+Build the package:
+
+```sh
+bash scripts/export-package.sh
+cd build/package
+makepkg -s
+```
+
+Supply the resulting archive to NeurOS-Packages/packages/neuros-installer.
+NeurOS-ISO's prepare script resolves it together with Calamares and its dependencies.
+Original code is MIT, as in LICENSE. Concept artwork retains its existing rights.

@@ -1,0 +1,18 @@
+pkgname=neuros-installer
+pkgver=0.1.0
+pkgrel=3
+pkgdesc='NeurOS branded Calamares installer and native interface preview'
+arch=(x86_64)
+license=(MIT)
+depends=(calamares python sudo qt6-declarative qt6-svg ttf-dejavu rsync squashfs-tools dosfstools e2fsprogs mkinitcpio neuros-bootloader)
+makedepends=(cmake ninja)
+source=("neuros-installer-$pkgver.tar.gz")
+sha256sums=('REPLACE_CHECKSUM')
+build() {
+ cmake -S "$srcdir/neuros-installer-$pkgver" -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+ cmake --build build
+}
+package() {
+ DESTDIR="$pkgdir" cmake --install build
+ install -Dm644 "$srcdir/neuros-installer-$pkgver/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

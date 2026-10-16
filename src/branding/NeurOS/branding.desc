@@ -20,9 +20,9 @@ images:
     productLogo: assets/mark.svg
     productWelcome: assets/wordmark.png
 style:
-    sidebarBackground: "#0c1018"
-    sidebarText: "#929bb0"
-    sidebarTextSelect: "#eee6fc"
-    sidebarTextHighlight: "#241b34"
+    SidebarBackground: "#0c1018"
+    SidebarText: "#929bb0"
+    SidebarTextCurrent: "#eee6fc"
+    SidebarBackgroundCurrent: "#241b34"
 slideshow: show.qml
 slideshowAPI: 2

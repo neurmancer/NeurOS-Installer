@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Install NeurOS
+Comment=Wire this machine into NeurOS
+Exec=neuros-install-system
+Icon=system-software-install
+Terminal=false
+Categories=System;

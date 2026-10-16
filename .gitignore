@@ -57,3 +57,4 @@ dkms.conf
 # Native installer preview
 /build/
 STEPS.md
+__pycache__/

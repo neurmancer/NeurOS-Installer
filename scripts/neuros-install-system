@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+"""Live-only privilege boundary. Snapshot disk identity before displaying choices."""
+import json, os, pathlib, subprocess, sys
+image = pathlib.Path('/run/archiso/bootmnt/neuros/x86_64/airootfs.sfs')
+if not image.is_file() or not pathlib.Path('/sys/firmware/efi').is_dir():
+    sys.exit('Installation requires the NeurOS UEFI live image.')
+if os.geteuid() != 0:
+    os.execvp('sudo', ['sudo', '-n', '--preserve-env=DISPLAY,WAYLAND_DISPLAY,XDG_RUNTIME_DIR', '/usr/bin/neuros-install-system'])
+for flag in pathlib.Path('/sys/firmware/efi/efivars').glob('SecureBoot-*'):
+    if flag.read_bytes()[4:5] == b'\x01':
+        sys.exit('This development installer requires Secure Boot disabled.')
+if os.environ.get('WAYLAND_DISPLAY'):
+    os.environ['QT_QPA_PLATFORM'] = 'wayland'
+state = pathlib.Path('/run/neuros-installer')
+state.mkdir(mode=0o700, exist_ok=True)
+output = subprocess.check_output(['lsblk', '--json', '--bytes', '--nodeps', '--output', 'PATH,MAJ:MIN,SIZE,MODEL,SERIAL,WWN,RO,TYPE'])
+(state / 'disks.json').write_bytes(output)
+os.execv('/usr/bin/calamares', ['calamares'])
