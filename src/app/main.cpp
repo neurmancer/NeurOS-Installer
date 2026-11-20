@@ -146,13 +146,18 @@ int main(int argc,char **argv) {
             window->setProperty("username",""); window->setProperty("hostname","neuros");
             window->setProperty("page",0);
         });
-        for(int i=0;i<6;i++) {
-            QTimer::singleShot(1100+i*500,window,[window,i]{window->setProperty("page",i);});
-            QTimer::singleShot(1400+i*500,window,[window,dest,i]{
-                if(!window->grabWindow().save(dest+QString("/step-%1.png").arg(i))) qFatal("Screenshot failed");
-            });
-        }
-        QTimer::singleShot(4400,&app,&QApplication::quit);
+        // Serialize captures: slow software rendering must not let later page
+        // timers overtake an earlier screenshot. Disable reveal animations.
+        window->setProperty("motion",false);
+        auto *captureTimer = new QTimer(window);
+        captureTimer->setInterval(1000);
+        QObject::connect(captureTimer,&QTimer::timeout,window,[window,dest,captureTimer,i=0]() mutable {
+            if(window->property("page").toInt()!=i) qFatal("Screenshot page changed unexpectedly");
+            if(!window->grabWindow().save(dest+QString("/step-%1.png").arg(i))) qFatal("Screenshot failed");
+            if(++i==6) { captureTimer->stop(); QCoreApplication::quit(); }
+            else window->setProperty("page",i);
+        });
+        QTimer::singleShot(1100,captureTimer,[captureTimer]{captureTimer->start();});
     }
     return app.exec();
 }
