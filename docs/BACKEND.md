@@ -1,8 +1,10 @@
 # Backend contract
 
 Calamares 3.4.2 owns the executable install plan. The preview JSON schema remains
-non-executable and carries no passwords. Native Calamares views supply translated
-locale/layout inventories, account validation, passwords and partition operations.
+non-executable and carries no passwords. Calamares localeq and keyboardq QML modules provide locale and keyboard selection;
+their NeurOS-branded views are configured in this checkout. Calamares also owns
+account validation, passwords and partition operations. Module loading and the
+complete flow still require validation in the current live image.
 No preview value is interpolated into a shell command.
 
 Custom jobs read only these GlobalStorage fields:

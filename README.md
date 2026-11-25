@@ -62,9 +62,9 @@ preview is not a Calamares module and does not launch Calamares.
 
 The production direction is a separate Calamares frontend. The standalone QML
 preview remains a design prototype; its exported JSON is never executed or
-imported into Calamares. Launch **Install NeurOS** from the live image to use the
-branded Calamares wizard with its own validated locale, keyboard, partition,
-account, summary, progress and error pages.
+imported into Calamares. The live image is configured to offer **Install NeurOS**, launching a branded
+Calamares wizard with locale, keyboard, partition, account, summary, progress
+and error pages. The current image and all wizard modules still need live testing.
 
 `src/etc/calamares/settings.conf` defines the offline sequence. Installation
 requires UEFI, Secure Boot disabled, an ext4 root, and a FAT32 ESP at `/boot`.
@@ -80,7 +80,7 @@ before installation, disabled during disk writes, and errors are reported by
 the actual job queue. A failed install is not automatically rolled back.
 
 This configuration is **under validation**, not a completed release. Read
-[STEPS.md](STEPS.md) for evidence and remaining checks. Do not invoke the config
+[the validation checklist](docs/VALIDATION.md) for evidence and remaining checks. Do not invoke the config
 on a development host. The supported launcher refuses non-live systems.
 
 Build the package:
