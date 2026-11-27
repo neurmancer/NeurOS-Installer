@@ -63,14 +63,14 @@ preview is not a Calamares module and does not launch Calamares.
 The production direction is a separate Calamares frontend. The standalone QML
 preview remains a design prototype; its exported JSON is never executed or
 imported into Calamares. The live image is configured to offer **Install NeurOS**, launching a branded
-Calamares wizard with locale, keyboard, partition, account, summary, progress
+Calamares wizard with locale, keyboard, partition, application selection, account, summary, progress
 and error pages. The current image and all wizard modules still need live testing.
 
 `src/etc/calamares/settings.conf` defines the offline sequence. Installation
 requires UEFI, Secure Boot disabled, an ext4 root, and a FAT32 ESP at `/boot`.
 Encryption and manual partitioning are disabled in this initial profile.
 The complete live filesystem supplies the desktop, Axon and Radioport; no
-network package downloads are required during installation.
+network package downloads are required during installation. Firefox and Dolphin are preselected on the Applications page; deselecting either removes it from the copied target. Kitty remains required by the graphical interface. Retro-Bundle has a development package recipe but is not yet available as an installer selection.
 
 The launcher snapshots disk identity. `neurospreflight` compares it immediately
 before partition jobs. `neuroscleanup` removes live-only settings before the

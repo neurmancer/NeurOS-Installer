@@ -16,3 +16,13 @@ QCheckBox::indicator { width: 16px; height: 16px; background: #141923; border: 1
 QCheckBox::indicator:checked { background: #75eeb4; border-color: #75eeb4; }
 QScrollBar:vertical { background: #10151e; width: 9px; }
 QScrollBar::handle:vertical { background: #5d467a; min-height: 24px; }
+
+/* Calamares application selection: keep tree rows and check states legible. */
+QTreeView { background: #10151f; border: 1px solid #453555; padding: 10px; outline: 0; }
+QTreeView::item { min-height: 42px; padding: 5px 10px; border-bottom: 1px solid #252c3a; }
+QTreeView::item:hover { background: #211a30; color: #f2eff9; }
+QTreeView::item:selected { background: #30213f; color: #f2eff9; }
+QTreeView::indicator { width: 16px; height: 16px; background: #141923; border: 1px solid #80639d; }
+QTreeView::indicator:checked { background: #75eeb4; border: 1px solid #75eeb4; }
+QTreeView::indicator:checked:hover { background: #b2ffdb; border-color: #b2ffdb; }
+QHeaderView::section { background: #171321; color: #b592e6; border: 0; border-bottom: 1px solid #58416f; padding: 9px 12px; font-weight: bold; }
