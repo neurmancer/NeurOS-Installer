@@ -58,3 +58,29 @@ dkms.conf
 /build/
 STEPS.md
 __pycache__/
+
+# BEGIN user-requested Markdown cleanup
+*.[mM][dD]
+![rR][eE][aA][dD][mM][eE]*.[mM][dD]
+![lL][iI][cC][eE][nN][sS][eE]*.[mM][dD]
+![lL][iI][cC][eE][nN][cC][eE]*.[mM][dD]
+![cC][oO][pP][yY][iI][nN][gG]*.[mM][dD]
+![cC][oO][pP][yY][rR][iI][gG][hH][tT]*.[mM][dD]
+![aA][uU][tT][hH][oO][rR][sS]*.[mM][dD]
+![cC][oO][nN][tT][rR][iI][bB][uU][tT][oO][rR][sS]*.[mM][dD]
+![cC][oO][nN][tT][rR][iI][bB][uU][tT][iI][nN][gG]*.[mM][dD]
+![cC][hH][aA][nN][gG][eE][lL][oO][gG]*.[mM][dD]
+![cC][hH][aA][nN][gG][eE][sS]*.[mM][dD]
+![sS][eE][cC][uU][rR][iI][tT][yY]*.[mM][dD]
+![cC][oO][dD][eE]_[oO][fF]_[cC][oO][nN][dD][uU][cC][tT]*.[mM][dD]
+![sS][uU][pP][pP][oO][rR][tT]*.[mM][dD]
+![iI][nN][sS][tT][aA][lL][lL]*.[mM][dD]
+![uU][sS][aA][gG][eE]*.[mM][dD]
+![fF][aA][qQ]*.[mM][dD]
+![dD][oO][cC][uU][mM][eE][nN][tT][aA][tT][iI][oO][nN]*.[mM][dD]
+![cC][oO][nN][vV][eE][nN][tT][iI][oO][nN][sS]*.[mM][dD]
+![tT][hH][iI][rR][dD]_[pP][aA][rR][tT][yY]*.[mM][dD]
+![aA][gG][eE][nN][tT][sS]*.[mM][dD]
+!**/[dD][oO][cC][sS]/**/*.[mM][dD]
+!**/.github/**/*.[mM][dD]
+# END user-requested Markdown cleanup
